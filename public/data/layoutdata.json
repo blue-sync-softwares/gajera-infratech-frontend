@@ -1,0 +1,20 @@
+{
+  "headerData": [
+    { "label": "Home", "href": "/" },
+    {
+      "label": "Businesses",
+      "href": "#",
+      "submenu": [
+        { "label": "Gajera Infratech", "href": "/business/gajera-infratech" },
+        { "label": "Gajera Associates", "href": "/business/gajera-associates" },
+        { "label": "Gajera CNC Work", "href": "/business/gajera-cnc-work" },
+        { "label": "Gajera Aluminium", "href": "/business/gajera-aluminium" },
+        { "label": "Gajera Environment", "href": "/business/gajera-environment" }
+      ]
+    },
+   
+    { "label": "Contact-Us", "href": "/contact" },
+    { "label": "About-Us", "href": "/about" }
+  ]
+}
+
