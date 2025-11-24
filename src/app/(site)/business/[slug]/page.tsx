@@ -145,7 +145,7 @@ export default async function Details({ params }: Props) {
 
                 {/* Tabs for overview/gallery/testimonials/projects */}
                 <BusinessTabs
-                    overview={{ html: item?.business_descripiton || item?.business_descripiton || '' }}
+                    overview={{ html: item?.business_overview || item?.business_descripiton || '' }}
                     gallery={item?.business_gallery || []}
                     testimonials={item?.business_testimonials || []}
                     projects={item?.project_details || []}

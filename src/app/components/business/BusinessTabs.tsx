@@ -57,8 +57,54 @@ export default function BusinessTabs({ overview, gallery = [], testimonials = []
 
       <div className="mt-6">
         {active === 'overview' && (
-          <div className="prose max-w-none dark:prose-invert">
-            <MarkdownBlock html={overview.html || ''} />
+          <div className="max-w-5xl mx-auto">
+            <div 
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-10 md:p-16 border border-border/50 mb-12"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
+              <div className="prose prose-xl max-w-none dark:prose-invert prose-headings:text-midnight_text dark:prose-headings:text-white prose-headings:mb-6 prose-headings:mt-8 first:prose-headings:mt-0 prose-p:text-gray dark:prose-p:text-slate-300 prose-p:leading-relaxed prose-p:mb-6 prose-h2:text-3xl prose-h3:text-2xl">
+                <MarkdownBlock html={overview.html || ''} />
+              </div>
+            </div>
+
+            {/* Additional Info Cards */}
+            <div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-xl p-8 text-center border border-primary/20 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-xl font-bold text-midnight_text dark:text-white mb-3">Quality Assured</h4>
+                <p className="text-base text-gray dark:text-slate-400 leading-relaxed">Premium standards in every project</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-xl p-8 text-center border border-primary/20 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-xl font-bold text-midnight_text dark:text-white mb-3">Timely Delivery</h4>
+                <p className="text-base text-gray dark:text-slate-400 leading-relaxed">On-time project completion</p>
+              </div>
+
+              <div className="bg-gradient-to-br from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-xl p-8 text-center border border-primary/20 hover:shadow-lg transition-shadow duration-300">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h4 className="text-xl font-bold text-midnight_text dark:text-white mb-3">Expert Team</h4>
+                <p className="text-base text-gray dark:text-slate-400 leading-relaxed">Experienced professionals</p>
+              </div>
+            </div>
           </div>
         )}
 
