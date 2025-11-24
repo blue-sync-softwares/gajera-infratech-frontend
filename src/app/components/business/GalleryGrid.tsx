@@ -3,7 +3,15 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
 
-type Props = { images: string[] };
+type GalleryImage = {
+  image_title: string;
+  image_src: string;
+  type_of_image: string;
+};
+
+type Props = { 
+  images: GalleryImage[];
+};
 
 export default function GalleryGrid({ images = [] }: Props) {
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -15,15 +23,15 @@ export default function GalleryGrid({ images = [] }: Props) {
   return (
     <div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-        {images.map((src, i) => (
+        {images.map((item, i) => (
           <button
             key={i}
-            onClick={() => setLightbox(src)}
+            onClick={() => setLightbox(item.image_src)}
             className="rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-sm"
-            aria-label={`Open image ${i + 1}`}
+            aria-label={`Open ${item.image_title}`}
           >
             <div className="w-full h-40 relative">
-              <Image src={src} alt={`img-${i}`} fill className="object-cover" />
+              <Image src={item.image_src} alt={item.image_title} fill className="object-cover" />
             </div>
           </button>
         ))}
@@ -38,8 +46,11 @@ export default function GalleryGrid({ images = [] }: Props) {
         >
           <div className="relative max-w-4xl w-full max-h-full" onClick={(e) => e.stopPropagation()}>
             <button
-              className="absolute top-3 right-3 z-60 text-white bg-black/40 hover:bg-black/60 rounded-full p-2"
-              onClick={() => setLightbox(null)}
+              className="absolute -top-12 right-0 z-10 text-white bg-black/40 hover:bg-black/60 rounded-full p-2 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightbox(null);
+              }}
               aria-label="Close image"
             >
               <Icon icon="mdi:close" className="w-6 h-6" />
