@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function PropertiesPage() {
+export default function UsersPage() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-darkmode py-12 px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-darkmode pt-32 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -11,17 +11,17 @@ export default function PropertiesPage() {
               ← Back to Dashboard
             </Link>
             <h1 className="text-4xl font-bold text-midnight_text dark:text-white">
-              Properties Management
+              User Management
             </h1>
           </div>
           <button className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
-            + Add New Property
+            + Add New User
           </button>
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-border/50 p-8">
           <p className="text-gray dark:text-slate-300 text-center py-12">
-            Properties management interface will be implemented here.
+            User management interface will be implemented here.
           </p>
         </div>
       </div>
