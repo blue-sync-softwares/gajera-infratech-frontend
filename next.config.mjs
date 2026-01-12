@@ -2,7 +2,7 @@
 const basePath = "";
 
 const nextConfig = {
-  output: 'export',
+  output: "standalone",
   basePath,
   assetPrefix: basePath,
   images: {

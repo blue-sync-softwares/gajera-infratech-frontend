@@ -74,7 +74,7 @@ const Hero = () => {
           >
             <div className="mb-8">
               <h1 className="md:text-[50px] leading-[1.2] text-4xl  ml-4 text-midnight_text dark:text-white font-bold">
-                Where perfection meets creativity
+                Building tommorow's infrastructure with purpose and passionˀ
               </h1>
             </div>
             {/* <div className="max-w-xl ml-4 sm:w-full">
@@ -248,8 +248,8 @@ const Hero = () => {
               </div>
               <div data-aos="fade-left">
                 <p className="text-lg dark:text-white text-black">
-                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora, quibusdam eveniet magni at sint reprehenderit eaque ex temporibus commodi corrupti sapiente expedita officiis quasi quas itaque minima perferendis impedit possimus.
-                  <span className="text-gray-400"> - from 658 reviews</span>
+                 From landmark residential towers to precision-engineered water treatment components, Gajera Brothers brings together construction mastery, architectural aluminium solutions, and sustainable manufacturing under one roof. We don't just build structures—we create lasting value for communities and the environment.
+                  {/* <span className="text-gray-400"> - from 658 reviews</span> */}
                 </p>
               </div>
             </div>

@@ -17,7 +17,7 @@ export default function History() {
             How we became number one
           </p>
           <p className="mb-8 pb-2 text-gray">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos voluptates perspiciatis itaque amet, rem illum velit quo, cumque assumenda id esse laborum numquam sit. Adipisci rerum natus consequatur necessitatibus dignissimos!
+            Leadership isn't about being the loudest—it's about being the most reliable. Gajera Brothers delivers what others promise: projects on time, quality beyond expectations, and lasting value. Our integrated expertise across construction, aluminium systems, and water management ensures seamless execution. In an industry built on trust, we've become the preferred choice by simply doing what we say, every time.
           </p>
           {/* <Link
             href="/properties/properties-list"
@@ -40,7 +40,7 @@ export default function History() {
                   Years Experience
                 </p>
                 <p className="text-[65px] leading-[1.2] -mt-1 text-midnight_text dark:text-white font-bold mb-2">
-                  20+
+                  8+
                 </p>
               </div>
               <div>
