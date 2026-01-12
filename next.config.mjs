@@ -2,7 +2,7 @@
 const basePath = "";
 
 const nextConfig = {
-  output: 'export',
+  output: 'standalone',
   basePath,
   assetPrefix: basePath,
   images: {
@@ -15,7 +15,7 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
-  reactStrictMode: true,
+  
 };
 
 export default nextConfig;
