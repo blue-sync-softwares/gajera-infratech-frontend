@@ -1,4 +1,4 @@
-import { extendedConfig } from "./src/utils/extendedConfig";
+import { extendedConfig } from "./src/utils/extendedConfig.ts";
 import type { Config } from "tailwindcss";
 
 const config: Config = {

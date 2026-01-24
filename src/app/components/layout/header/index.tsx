@@ -55,8 +55,12 @@ const Header: React.FC = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    if (storedUser && storedUser !== "undefined") {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (error) {
+        console.error("Error parsing user data:", error);
+      }
     }
     return () => {
       window.removeEventListener("scroll", handleScroll);
