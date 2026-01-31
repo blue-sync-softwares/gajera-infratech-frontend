@@ -107,7 +107,7 @@ export default function BusinessesPage() {
       const response = await apiGet('/api/v1/business');
       
       if (response.success && response.data && response.data.data) {
-        setBusinesses(Array.isArray(response.data.data) ? response.data.data : []);
+        setBusinesses(Array.isArray(response.data.data.businesses) ? response.data.data.businesses : []);
       } else {
         setBusinesses([]);
       }

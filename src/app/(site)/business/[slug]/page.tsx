@@ -9,10 +9,25 @@ import ProjectFilters from '@/app/components/business/ProjectFilters';
 import ProjectCard from '@/app/components/business/ProjectCard';
 import DiscoverProperties from '@/app/components/home/property-option';
 import { getImgPath } from '@/utils/pathUtils';
+import { API_BASE_URL } from '@/utils/api';
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
+
+interface BusinessData {
+    slug: string;
+    business_title?: string;
+    business_tagline?: string;
+    business_descripiton?: string;
+    business_overview?: string;
+    ctaText?: string;
+    ctaHref?: string;
+    business_gallery?: any[];
+    business_testimonials?: any[];
+    project_details?: any[];
+    project_types?: any[];
+}
 
 export async function generateStaticParams() {
     const filePath = join(process.cwd(), 'public/data/businessdata.json');
@@ -25,11 +40,34 @@ export async function generateStaticParams() {
 
 export default async function Details({ params }: Props) {
     const { slug } = await params;
-    const filePath = join(process.cwd(), 'public/data/businessdata.json');
-    const fileContents = readFileSync(filePath, 'utf8');
-    const properties = JSON.parse(fileContents);
-
-    const item = properties.find((it: any) => it.slug === slug) || {};
+    
+    let item: BusinessData = { slug };
+    
+    try {
+        // Fetch business data from API
+        const response = await fetch(`${API_BASE_URL}/api/v1/business/${slug}`, {
+            next: { revalidate: 60 } // Revalidate every 60 seconds for ISR
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            // Handle both direct data and nested data.data response
+            item = data.data || data;
+        } else {
+            console.error(`Failed to fetch business with slug: ${slug}`);
+        }
+    } catch (error) {
+        console.error('Error fetching business from API:', error);
+        // Fallback: try to get from static JSON
+        try {
+            const filePath = join(process.cwd(), 'public/data/businessdata.json');
+            const fileContents = readFileSync(filePath, 'utf8');
+            const properties = JSON.parse(fileContents);
+            item = properties.find((it: any) => it.slug === slug) || { slug };
+        } catch (jsonError) {
+            console.error('Error reading fallback JSON:', jsonError);
+        }
+    }
 
     const breadcrumbLinks = [
         { href: "/", text: "Home" },
@@ -48,7 +86,7 @@ export default async function Details({ params }: Props) {
                         tagline={item?.business_tagline || ''}
                         ctaText={item?.ctaText || 'Enquire'}
                         ctaHref={item?.ctaHref || '#'}
-                        image={item?.business_gallery ? getImgPath(item.business_gallery[0].image_src) : undefined}
+                        image={item?.business_gallery ? getImgPath(item.business_gallery[0]?.image_src) : undefined}
                     />
                 </div>
 
@@ -56,11 +94,11 @@ export default async function Details({ params }: Props) {
 
             <section className="container mx-auto dark:bg-darkmode my-12 px-4">
                 {/* main image */}
-                {item?.business_gallery[0].image_src && (
+                {item?.business_gallery && item.business_gallery.length > 0 && (
                     <div className="h-[420px] max-w-5xl mx-auto w-full mb-8">
                         <Image
                             src={getImgPath(item.business_gallery[0].image_src)}
-                            alt={item.business_title}
+                            alt={item.business_title || 'Business Image'}
                             width={1200}
                             height={600}
                             className="h-full w-full object-cover rounded-lg"
@@ -146,7 +184,7 @@ export default async function Details({ params }: Props) {
                 {/* Tabs for overview/gallery/testimonials/projects */}
                 <BusinessTabs
                     overview={{ html: item?.business_overview || item?.business_descripiton || '' }}
-                    gallery={item?.business_gallery || []}
+                    gallery={(item?.business_gallery as any) || []}
                     testimonials={item?.business_testimonials || []}
                     projects={item?.project_details || []}
                     projectTypes={item?.project_types || []}

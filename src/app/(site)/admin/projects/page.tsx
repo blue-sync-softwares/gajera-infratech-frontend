@@ -84,7 +84,8 @@ const emptyFormData: Project = {
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [businesses, setBusinesses] = useState<{ slug: string; business_title: string }[]>([]);
+  const [businesses, setBusinesses] = useState<{ slug: string; business_title: string; project_types?: string[] }[]>([]);
+  const [projectTypes, setProjectTypes] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -125,17 +126,20 @@ export default function ProjectsPage() {
       const response = await apiGet('/api/v1/business');
       
       if (response.success && response.data && response.data.data) {
-        const businessList = Array.isArray(response.data.data) ? response.data.data : [];
+        const businessList = Array.isArray(response.data.data.businesses) ? response.data.data.businesses : [];
         setBusinesses(businessList.map((b: any) => ({ 
           slug: b.slug, 
-          business_title: b.business_title 
+          business_title: b.business_title,
+          project_types: b.project_types || []
         })));
       } else {
         setBusinesses([]);
+        setProjectTypes([]);
       }
     } catch (error) {
       console.error('Error fetching businesses:', error);
       setBusinesses([]);
+      setProjectTypes([]);
     }
   };
 
@@ -145,6 +149,20 @@ export default function ProjectsPage() {
     setShowForm(true);
     setErrorMessage(null);
     setSuccessMessage(null);
+  };
+
+  const handleBusinessChange = (businessSlug: string) => {
+    setFormData((prev) => ({ ...prev, business_name_slug: businessSlug }));
+    
+    // Find the selected business and update project types
+    const selectedBusiness = businesses.find((b) => b.slug === businessSlug);
+    if (selectedBusiness && selectedBusiness.project_types) {
+      setProjectTypes(selectedBusiness.project_types);
+      // Reset project_type when business changes
+      setFormData((prev) => ({ ...prev, project_type: '' }));
+    } else {
+      setProjectTypes([]);
+    }
   };
 
   const handleEdit = async (slug: string) => {
@@ -163,6 +181,13 @@ export default function ProjectsPage() {
           }));
         }
         setFormData(projectData);
+        
+        // Load project types for the selected business
+        const selectedBusiness = businesses.find((b) => b.slug === projectData.business_name_slug);
+        if (selectedBusiness && selectedBusiness.project_types) {
+          setProjectTypes(selectedBusiness.project_types);
+        }
+        
         setIsEditMode(true);
         setShowForm(true);
       } else {
@@ -649,7 +674,7 @@ export default function ProjectsPage() {
                 <select
                   name="business_name_slug"
                   value={formData.business_name_slug}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, business_name_slug: e.target.value }))}
+                  onChange={(e) => handleBusinessChange(e.target.value)}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-border dark:border-gray-600 bg-white dark:bg-gray-700 text-midnight_text dark:text-white focus:ring-2 focus:ring-primary"
                 >
@@ -699,15 +724,21 @@ export default function ProjectsPage() {
                 <label className="block text-sm font-semibold text-midnight_text dark:text-white mb-2">
                   Project Type *
                 </label>
-                <input
-                  type="text"
+                <select
                   name="project_type"
                   value={formData.project_type}
-                  onChange={handleInputChange}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, project_type: e.target.value }))}
                   required
-                  placeholder="e.g., Residential, Commercial, Industrial"
                   className="w-full px-4 py-3 rounded-lg border border-border dark:border-gray-600 bg-white dark:bg-gray-700 text-midnight_text dark:text-white focus:ring-2 focus:ring-primary"
-                />
+                >
+                  <option value="">Select a project type</option>
+                  {projectTypes.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+                <p className="text-xs text-gray mt-1">Select the type of project</p>
               </div>
 
               {/* Hero Image */}

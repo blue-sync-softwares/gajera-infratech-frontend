@@ -8,6 +8,7 @@ import Logo from "./logo";
 import HeaderLink from "./navigation/HeaderLink";
 import MobileHeaderLink from "./navigation/MobileHeaderLink";
 import { getDataPath, getImgPath } from "@/utils/pathUtils";
+import { apiGet } from "@/utils/api";
 
 const Header: React.FC = () => {
   const pathUrl = usePathname();
@@ -70,11 +71,40 @@ const Header: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Fetch layout data from static JSON
         const res = await fetch(getDataPath('/data/layoutdata.json'))
-        if (!res.ok) throw new Error('Failed to fetch')
+        if (!res.ok) throw new Error('Failed to fetch layout data')
 
-        const data = await res.json()
-        setData(data?.headerData || [])
+        const layoutJsonData = await res.json()
+        let headerData = layoutJsonData?.headerData || []
+
+        // Fetch businesses from API
+        try {
+          const businessResponse = await apiGet('/api/v1/business');
+          if (businessResponse.success && businessResponse.data) {
+            // Transform API businesses to submenu format
+            const businessesFromApi = businessResponse.data.data.businesses.map((business: any) => ({
+              label: business.business_title,
+              href: `/business/${business.slug}`
+            }));
+
+            // Update the Businesses menu item with API data
+            headerData = headerData.map((item: any) => {
+              if (item.label === "Businesses") {
+                return {
+                  ...item,
+                  submenu: businessesFromApi
+                };
+              }
+              return item;
+            });
+          }
+        } catch (apiError) {
+          console.error('Error fetching businesses from API:', apiError);
+          // Keep the static businesses from JSON if API fails
+        }
+
+        setData(headerData)
       } catch (error) {
         console.error('Error loading layout data:', error)
       }
