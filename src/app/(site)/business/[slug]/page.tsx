@@ -16,6 +16,7 @@ type Props = {
 };
 
 interface BusinessData {
+    featured_image?: { url: string };
     slug: string;
     hero_image?: { url: string };
     business_title?: string;
@@ -95,10 +96,10 @@ export default async function Details({ params }: Props) {
 
             <section className="container mx-auto dark:bg-darkmode my-12 px-4">
                 {/* main image */}
-                {item?.business_gallery && item.business_gallery.length > 0 && (
+                {item?.featured_image && (
                     <div className="h-[420px] max-w-5xl mx-auto w-full mb-8">
                         <Image
-                            src={getImgPath(item.business_gallery[0].image_src.url)}
+                            src={getImgPath(item.featured_image?.url)}
                             alt={item.business_title || 'Business Image'}
                             width={1200}
                             height={600}
@@ -132,18 +133,18 @@ export default async function Details({ params }: Props) {
                     >
                         <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                             <div className="text-4xl font-bold text-primary mb-2">
-                                {item?.project_details?.length || 0}+
+                                {item?.project_details?.length || 5}+
                             </div>
                             <p className="text-gray dark:text-slate-400 font-medium">Projects</p>
                         </div>
                         <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                             <div className="text-4xl font-bold text-primary mb-2">
-                                {item?.business_testimonials?.length || 0}+
+                                {item?.business_testimonials?.length || 10}+
                             </div>
                             <p className="text-gray dark:text-slate-400 font-medium">Happy Clients</p>
                         </div>
                         <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                            <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                            <div className="text-4xl font-bold text-primary mb-2">10+</div>
                             <p className="text-gray dark:text-slate-400 font-medium">Years Experience</p>
                         </div>
                         <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
