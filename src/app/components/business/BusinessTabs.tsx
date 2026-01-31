@@ -8,7 +8,7 @@ import ProjectCard from './ProjectCard';
 
 type GalleryImage = {
   image_title: string;
-  image_src: string;
+  image_src: { url: string };
   type_of_image: string;
 };
 

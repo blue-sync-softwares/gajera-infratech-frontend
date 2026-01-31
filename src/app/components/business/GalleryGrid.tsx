@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 
 type GalleryImage = {
   image_title: string;
-  image_src: string;
+  image_src: { url: string };
   type_of_image: string;
 };
 
@@ -26,12 +26,12 @@ export default function GalleryGrid({ images = [] }: Props) {
         {images.map((item, i) => (
           <button
             key={i}
-            onClick={() => setLightbox(item.image_src)}
+            onClick={() => setLightbox(item.image_src.url)}
             className="rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-sm"
             aria-label={`Open ${item.image_title}`}
           >
             <div className="w-full h-40 relative">
-              <Image src={item.image_src} alt={item.image_title} fill className="object-cover" />
+              <Image src={item.image_src.url} alt={item.image_title} fill className="object-cover" />
             </div>
           </button>
         ))}

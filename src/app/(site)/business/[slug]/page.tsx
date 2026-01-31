@@ -17,6 +17,7 @@ type Props = {
 
 interface BusinessData {
     slug: string;
+    hero_image?: { url: string };
     business_title?: string;
     business_tagline?: string;
     business_descripiton?: string;
@@ -86,7 +87,7 @@ export default async function Details({ params }: Props) {
                         tagline={item?.business_tagline || ''}
                         ctaText={item?.ctaText || 'Enquire'}
                         ctaHref={item?.ctaHref || '#'}
-                        image={item?.business_gallery ? getImgPath(item.business_gallery[0]?.image_src) : undefined}
+                        image={item?.hero_image ? getImgPath(item.hero_image?.url) : undefined}
                     />
                 </div>
 
@@ -97,7 +98,7 @@ export default async function Details({ params }: Props) {
                 {item?.business_gallery && item.business_gallery.length > 0 && (
                     <div className="h-[420px] max-w-5xl mx-auto w-full mb-8">
                         <Image
-                            src={getImgPath(item.business_gallery[0].image_src)}
+                            src={getImgPath(item.business_gallery[0].image_src.url)}
                             alt={item.business_title || 'Business Image'}
                             width={1200}
                             height={600}
