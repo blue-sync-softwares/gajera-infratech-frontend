@@ -1,12 +1,17 @@
 import React from 'react';
 
-export default function TextSection() {
+interface TextSectionProps {
+    description?: string;
+}
+
+export default function TextSection({ description }: TextSectionProps) {
+    if (!description) return null;
 
     return (
-        <section className='py-0 dark:bg-darkmode'>
-            <div className='max-w-4xl mx-auto text-center text-gray' data-aos='fade-up'>
-                <p className='text-base sm:text-lg md:text-xl lg:text-2xl px-4 sm:px-6 md:px-8'>
-                    Aenean facilisis, neque id sagittis volutpat, sapien nibh porttitor neque, et ullamcorper justo lectus tempus neque. Donec maximus dolor mauris, ut lacinia sem blandit eu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+        <section className="py-12 bg-white dark:bg-darkmode">
+            <div className="container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4">
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {description}
                 </p>
             </div>
         </section>

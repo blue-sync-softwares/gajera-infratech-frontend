@@ -1,0 +1,93 @@
+[
+  {
+    "_id": "507f1f77bcf86cd799439011",
+    "project_id": "PROJ-2025-001",
+    "business_name_slug": "gajera-infratech",
+    "project_name": "Highland Residency",
+    "project_description": "A stunning modern apartment complex featuring eco-friendly design and premium amenities in the heart of the city.",
+    "project_type": "Residential",
+    "slug": "highland-residency",
+    "project_features": [
+      "Smart home automation",
+      "Solar panels",
+      "Swimming pool",
+      "Gym and fitness center",
+      "24/7 security",
+      "Underground parking",
+      "Rooftop garden"
+    ],
+    "hero_image": {
+      "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/highland-residency-hero.jpg",
+      "public_id": "projects/highland-residency-hero"
+    },
+    "project_images": [
+      {
+        "ranking": 1,
+        "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/highland-residency-1.jpg",
+        "public_id": "projects/highland-residency-1"
+      },
+      {
+        "ranking": 2,
+        "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/highland-residency-2.jpg",
+        "public_id": "projects/highland-residency-2"
+      },
+      {
+        "ranking": 3,
+        "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/highland-residency-3.jpg",
+        "public_id": "projects/highland-residency-3"
+      }
+    ],
+    "project_detail": {
+      "image": {
+        "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/highland-residency-detail.jpg",
+        "public_id": "projects/highland-residency-detail"
+      },
+      "title": "Project Overview",
+      "description": "This modern apartment complex spans 15 acres and includes 250 residential units with sizes ranging from 1 BHK to 4 BHK. The project features contemporary architecture combined with sustainable living practices."
+    },
+    "project_document": [
+      {
+        "image": {
+          "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/brochure-cover.jpg",
+          "public_id": "projects/brochure-cover"
+        },
+        "title": "Project Brochure",
+        "description": "Comprehensive brochure with floor plans, amenities, and pricing information.",
+        "file_name": "Modern-Apartment-Brochure.pdf",
+        "file_link": {
+          "url": "https://res.cloudinary.com/gajera/raw/upload/v1701234567/projects/Modern-Apartment-Brochure.pdf",
+          "public_id": "projects/Modern-Apartment-Brochure"
+        },
+        "button_title": "Download Brochure",
+        "download_message": "Download our detailed project brochure (5 MB)"
+      },
+      {
+        "image": {
+          "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/floor-plans.jpg",
+          "public_id": "projects/floor-plans"
+        },
+        "title": "Floor Plans",
+        "description": "Detailed floor plans for all unit types and layouts.",
+        "file_name": "Floor-Plans.pdf",
+        "file_link": {
+          "url": "https://res.cloudinary.com/gajera/raw/upload/v1701234567/projects/Floor-Plans.pdf",
+          "public_id": "projects/Floor-Plans"
+        },
+        "button_title": "View Plans",
+        "download_message": "Download floor plans (3 MB)"
+      }
+    ],
+    "createdAt": "2025-01-15T10:30:00.000Z",
+    "updatedAt": "2025-01-28T14:45:00.000Z",
+    "business": {
+      "_id": "507f1f77bcf86cd799439010",
+      "business_name": "Gajera Constructions",
+      "slug": "gajera-constructions",
+      "description": "Leading real estate and construction company",
+      "logo": {
+        "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/business/gajera-logo.png",
+        "public_id": "business/gajera-logo"
+      }
+    }
+  }
+]
