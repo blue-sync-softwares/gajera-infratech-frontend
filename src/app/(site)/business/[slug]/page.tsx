@@ -10,6 +10,12 @@ import ProjectCard from '@/app/components/business/ProjectCard';
 import DiscoverProperties from '@/app/components/home/property-option';
 import { getImgPath } from '@/utils/pathUtils';
 import { API_BASE_URL } from '@/utils/api';
+import AboutIntro from "@/app/components/about/about-intro";
+import MissionValues from "@/app/components/about/mission-values";
+import HistoryTimeline from "@/app/components/about/history-timeline";
+import TeamGrid from "@/app/components/about/team-grid";
+import ContactInfo from "@/app/components/contact/contact-info";
+import ContactForm from "@/app/components/contact/form";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -42,15 +48,15 @@ export async function generateStaticParams() {
 
 export default async function Details({ params }: Props) {
     const { slug } = await params;
-    
+
     let item: BusinessData = { slug };
-    
+
     try {
         // Fetch business data from API
         const response = await fetch(`${API_BASE_URL}/api/v1/business/${slug}`, {
             next: { revalidate: 60 } // Revalidate every 60 seconds for ISR
         });
-        
+
         if (response.ok) {
             const data = await response.json();
             // Handle both direct data and nested data.data response
@@ -94,7 +100,7 @@ export default async function Details({ params }: Props) {
 
             </section>
 
-            <section className="container mx-auto dark:bg-darkmode my-12 px-4">
+            <section className="container mx-auto dark:bg-darkmode px-4">
                 {/* main image */}
                 {item?.featured_image && (
                     <div className="h-[420px] max-w-5xl mx-auto w-full mb-8">
@@ -110,7 +116,7 @@ export default async function Details({ params }: Props) {
 
                 {/* Business Introduction Section */}
                 <div className="max-w-5xl mx-auto mb-12">
-                    <div 
+                    <div
                         className="text-center mb-8"
                         data-aos="fade-up"
                         data-aos-duration="800"
@@ -125,7 +131,7 @@ export default async function Details({ params }: Props) {
                     </div>
 
                     {/* Stats or Features Grid */}
-                    <div 
+                    <div
                         className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8"
                         data-aos="fade-up"
                         data-aos-duration="1000"
@@ -154,7 +160,7 @@ export default async function Details({ params }: Props) {
                     </div>
 
                     {/* Call to Action Banner */}
-                    <div 
+                    <div
                         className="bg-gradient-to-r from-primary to-primary/80 rounded-xl p-8 md:p-12 text-center text-white shadow-lg"
                         data-aos="zoom-in"
                         data-aos-duration="800"
@@ -171,10 +177,10 @@ export default async function Details({ params }: Props) {
                             className="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
                         >
                             <span>Get Started Today</span>
-                            <svg 
-                                className="w-5 h-5" 
-                                fill="none" 
-                                stroke="currentColor" 
+                            <svg
+                                className="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
                                 viewBox="0 0 24 24"
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -209,6 +215,57 @@ export default async function Details({ params }: Props) {
                 {/* <div className="mt-12">
                     <DiscoverProperties />
                 </div> */}
+            </section>
+
+
+            {/* about-us */}
+            <section className="mx-auto dark:bg-darkmode about-us">
+                {/* About introduction */}
+                <AboutIntro
+                    headline="Who we are"
+                    text="Founded in 2019, Gajera Brothers is a professionally managed, diversified enterprise based in India, delivering reliable solutions in construction, aluminium window and façade systems, and sustainable water management manufacturing. With a strong foundation in engineering and execution excellence, we support private, commercial, and government sector projects with a focus on quality, compliance, and long-term performance."
+                />
+
+                {/* Mission and values */}
+                <MissionValues
+                    mission="To drive inclusive economic growth through ethical practices, cutting-edge solutions and community partnerships."
+                    values={[
+                        "Integrity",
+                        "Sustainability",
+                        "Innovation",
+                        "Community focus",
+                    ]}
+                />
+
+                {/* Key milestones / history */}
+                <HistoryTimeline
+                    events={[
+                        { year: 2019, title: "Foundation", desc: "Establishment of Gajera Brothers. Entry into private residential construction" },
+                        { year: 2020, title: "Expansion", desc: "Execution of commercial construction projects. Entry into government construction works with strengthened compliance processes" },
+                        { year: 2021, title: "Aluminium Solutions Division", desc: "Launch of aluminium window and façade systems. Successful delivery for villas and bungalow projects" },
+                        { year: 2022, title: "High-Rise Capability", desc: "Expansion into aluminium solutions for high-rise towers. Enhancement of design, engineering, and execution expertise" },
+                        { year: 2023, title: "Sustainability Initiative", desc: "Entry into water management and water harvesting manufacturing. Setup of in-house shop floor for FRP membrane housing components" },
+                        { year: 2024, title: "Product Range Expansion", desc: "Manufacturing of a comprehensive range of FRP membrane housing components and spare parts. Supply across multiple sizes and configurations." },
+                        { year: 2025, title: "Integrated Operations", desc: "Active presence across construction, aluminium systems, and sustainability sectors. Focus on long-term partnerships, innovation, and responsible development" },
+                    ]}
+                />
+
+
+
+
+                {/* Team */}
+                <TeamGrid
+                    members={[
+                        { name: "Mr. Hiren Gajera", role: "Founder & Chairman", photo: "/images/team/gajera.jpg" },
+                        // { name: "S. Patel", role: "CEO", photo: "/images/team/ceo.jpg" },
+                        // { name: "A. Mehta", role: "Head of Operations", photo: "/images/team/ops.jpg" },
+                    ]}
+                />
+            </section>
+            {/* Contact form */}
+            <section className="mx-auto dark:bg-darkmode px-4 about-us">
+                <ContactInfo />
+                <ContactForm />
             </section>
         </div>
     );

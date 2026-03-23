@@ -24,11 +24,14 @@ const page = () => {
   return (
     <>
       {/* About introduction */}
+      <div className="pt-44">
+
       <AboutIntro
         headline="Who we are"
         text="Founded in 2019, Gajera Brothers is a professionally managed, diversified enterprise based in India, delivering reliable solutions in construction, aluminium window and façade systems, and sustainable water management manufacturing. With a strong foundation in engineering and execution excellence, we support private, commercial, and government sector projects with a focus on quality, compliance, and long-term performance."
         breadcrumbLinks={breadcrumbLinks}
       />
+      </div>
 
       {/* Mission and values */}
       <MissionValues

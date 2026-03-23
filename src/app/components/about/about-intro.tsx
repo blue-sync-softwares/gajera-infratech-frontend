@@ -21,7 +21,7 @@ export default function AboutIntro({
     // use same hero background/spacing utilities so section aligns visually with hero
     <section
       aria-labelledby="about-intro"
-      className="relative pt-44 pb-12 bg-no-repeat bg-gradient-to-b from-white from-10% dark:from-darkmode to-herobg to-90% dark:to-darklight overflow-x-hidden"
+      className="relative pb-12 bg-no-repeat bg-gradient-to-b from-white from-10% dark:from-darkmode to-herobg to-90% dark:to-darklight overflow-x-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">

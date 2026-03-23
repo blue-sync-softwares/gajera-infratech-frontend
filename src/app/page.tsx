@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <DiscoverProperties />
-      <Listing />
+      {/* <DiscoverProperties /> */}
+      {/* <Listing /> */}
       {/* <Calculator /> */}
       <Features />
       <History />
