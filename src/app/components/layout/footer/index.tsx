@@ -18,7 +18,7 @@ const Footer = () => {
                 alt="logo"
                 width={156}
                 height={38}
-                style={{ width: '150px', height: '55px', transform: "rotate(2deg)" }}
+                style={{ width: '100px', height: '55px', transform: "rotate(2deg)" }}
 
               />
             </Link>
