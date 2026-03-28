@@ -121,7 +121,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li onClick={() => updateFilter('category', 'house')}>
-                  <Link href="/business/gajera-associates" className="mb-3 inline-block text-base text-gray hover:text-white">
+                  <Link href="/business/gajera-associate" className="mb-3 inline-block text-base text-gray hover:text-white">
                     Gajera Associates
                   </Link>
                 </li>
@@ -135,11 +135,11 @@ const Footer = () => {
                     Gajera Aluminium
                   </Link>
                 </li>
-                {/* <li onClick={() => updateFilter('category', 'shop')}>
-                  <Link href="/business/gajera-environment" className="mb-3 inline-block text-base text-gray hover:text-white">
-                    Gajera Environment
+                <li onClick={() => updateFilter('category', 'shop')}>
+                  <Link href="/business/gajera-sustainability" className="mb-3 inline-block text-base text-gray hover:text-white">
+                    Gajera Sustainability
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>
