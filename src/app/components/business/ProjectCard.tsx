@@ -9,7 +9,7 @@ type Project = {
   project_description: string;
   project_type: string;
   project__features: string[];
-  project_images: string[];
+  project_images: { url: string }[];
   slug: string;
 };
 
@@ -21,7 +21,7 @@ type Props = {
 export default function ProjectCard({ project, index = 0 }: Props) {
   const badge = project?.project_type === 'gov' ? 'Government' : 'Private';
   const badgeColor = project?.project_type === 'gov' ? 'bg-blue-500' : 'bg-primary';
-  const img = project?.project_images?.[0] ? getImgPath(project.project_images[0]) : undefined;
+  const img = project?.project_images?.[0] ? getImgPath(project.project_images[0].url) : undefined;
 
   return (
     <div 
