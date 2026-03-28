@@ -108,7 +108,7 @@ export default function ProjectCard({ project, index = 0 }: Props) {
 
           {/* View Details Link */}
           <Link
-            href={`/properties/properties-list/${project.slug}`}
+            href={`/project/project-list/${project.slug}`}
             className="text-sm font-semibold text-primary hover:text-primary/80 flex items-center gap-1 group/link transition-all duration-300"
           >
             <span>View Details</span>
