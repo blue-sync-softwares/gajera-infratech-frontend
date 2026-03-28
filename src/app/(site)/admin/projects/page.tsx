@@ -107,8 +107,8 @@ export default function ProjectsPage() {
     try {
       const response = await apiGet('/api/v1/project');
       
-      if (response.success && response.data && response.data.data) {
-        setProjects(Array.isArray(response.data.data) ? response.data.data : []);
+      if (response.success && response.data && response.data.data && response.data.data.projects) {
+        setProjects(Array.isArray(response.data.data.projects) ? response.data.data.projects : []);
       } else {
         setProjects([]);
       }
