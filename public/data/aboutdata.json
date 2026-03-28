@@ -1,0 +1,60 @@
+[
+    {
+        "business-slug":"gajera-infratech",
+        "intros":{
+            "title":"Who we are",
+            "description":"Founded in 2019, Gajera Brothers is a professionally managed, diversified enterprise based in India, delivering reliable solutions in construction, aluminium window and façade systems, and sustainable water management manufacturing. With a strong foundation in engineering and execution excellence, we support private, commercial, and government sector projects with a focus on quality, compliance, and long-term performance."
+        },
+        "mission":{
+            "heading":"Our Mission",
+            "title":"To drive inclusive economic growth through ethical practices, cutting-edge solutions and community partnerships",
+            "description":"We combine ethics, innovation and community partnership to create long-term, measurable impact — focusing on sustainable growth and responsible stewardship."
+        },
+        "our_values":{
+            "heading":"Our Values",
+            "title":[
+                {
+                    "title":"Integrity",
+                    "description":"We uphold the highest standards of integrity in all our actions, fostering trust and transparency with our clients, partners, and communities."
+                },
+                {
+                    "title":"Innovation",
+                    "description":"We embrace innovation to deliver cutting-edge solutions that meet the evolving needs of our clients and contribute to sustainable development."
+                },
+                {
+                    "title":"Sustainability",
+                    "description":"We are committed to sustainable practices that minimize environmental impact and promote long-term well-being for future generations."
+                },
+                {
+                    "title":"Community focus",
+                    "description":"We believe in giving back to the communities we serve, fostering partnerships that drive positive social and economic impact."
+                }   
+            ]
+        },
+        "history": [
+            { "year": 2019, "title": "Foundation", "desc": "Establishment of Gajera Brothers. Entry into private residential construction" },
+            { "year": 2020, "title": "Expansion", "desc": "Execution of commercial construction projects. Entry into government construction works with strengthened compliance processes" },
+            { "year": 2021, "title": "Aluminium Solutions Division", "desc": "Launch of aluminium window and façade systems. Successful delivery for villas and bungalow projects" },
+            { "year": 2022, "title": "High-Rise Capability", "desc": "Expansion into aluminium solutions for high-rise towers. Enhancement of design, engineering, and execution expertise" },
+            { "year": 2023, "title": "Sustainability Initiative", "desc": "Entry into water management and water harvesting manufacturing. Setup of in-house shop floor for FRP membrane housing components" },
+            { "year": 2024, "title": "Product Range Expansion", "desc": "Manufacturing of a comprehensive range of FRP membrane housing components and spare parts. Supply across multiple sizes and configurations." },
+            { "year": 2025, "title": "Integrated Operations", "desc": "Active presence across construction, aluminium systems, and sustainability sectors. Focus on long-term partnerships, innovation, and responsible development" }
+        ],
+        "stats": [
+            { "label": "Years", "value": 5 },
+            { "label": "Projects", "value": 20 },
+            { "label": "Employees", "value": 50 },
+            { "label": "Locations", "value": 2 }
+        ],
+        "team": [
+            {
+                "name": "John Gajera",
+                "position": "Founder & CEO",
+                "profile_image": {
+                    "url": "https://res.cloudinary.com/gajera/image/upload/v1701234567/projects/highland-residency-hero.jpg",
+                    "public_id": "projects/highland-residency-hero"
+                }
+            }
+        ]
+    }
+]
