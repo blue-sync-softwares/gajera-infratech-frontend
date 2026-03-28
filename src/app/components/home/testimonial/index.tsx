@@ -10,7 +10,7 @@ export default function Testimonials() {
                 <div className="flex justify-between">
                     <div className="flex-1 lg:block hidden" data-aos="fade-right">
                         <Image
-                            src={getImgPath("/images/testimonial/vector-smart.png")}
+                            src={getImgPath("/images/testimonial/testimonials.png")}
                             alt="testimonial"
                             width={451}
                             height={470}

@@ -7,11 +7,11 @@ const Logo: React.FC = () => {
   return (
     <Link href="/">
       <Image
-        src={getImgPath("/images/logo/04.png")}
+        src={getImgPath("/images/logo/newLogo.png")}
         alt="logo"
         width={160}
         height={50}
-        style={{ width: '100px', height: '55px', transform: "rotate(2deg)" }}
+        style={{ width: '100%', height: '55px' }}
         quality={100}
         className='dark:hidden'
       />

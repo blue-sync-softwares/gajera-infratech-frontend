@@ -13,8 +13,7 @@
       ]
     },
    
-    { "label": "Contact-Us", "href": "/contact" },
-    { "label": "About-Us", "href": "/about" }
+    { "label": "Contact-Us", "href": "/contact" }
   ]
 }
 

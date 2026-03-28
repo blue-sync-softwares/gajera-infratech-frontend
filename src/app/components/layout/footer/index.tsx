@@ -14,11 +14,11 @@ const Footer = () => {
           <div className="md:col-span-4 col-span-12 flex items-center px-4 sm:px-0">
             <Link href="/" className="mb-6 inline-block max-w-40">
               <Image
-                src={getImgPath("/images/logo/05.png")}
+                src={getImgPath("/images/logo/newLogo.png")}
                 alt="logo"
                 width={156}
                 height={38}
-                style={{ width: '100px', height: '55px', transform: "rotate(2deg)" }}
+                style={{ width: '100%', height: '55px', filter: "brightness(2.5)" }}
 
               />
             </Link>
@@ -125,21 +125,21 @@ const Footer = () => {
                     Gajera Associates
                   </Link>
                 </li>
-                <li onClick={() => updateFilter('category', 'office')}>
+                {/* <li onClick={() => updateFilter('category', 'office')}>
                   <Link href="/business/gajera-cnc-work" className="mb-3 inline-block text-base text-gray hover:text-white">
                     Gajera CNC Work
                   </Link>
-                </li>
+                </li> */}
                 <li onClick={() => updateFilter('category', 'shop')}>
                   <Link href="/business/gajera-aluminium" className="mb-3 inline-block text-base text-gray hover:text-white">
                     Gajera Aluminium
                   </Link>
                 </li>
-                <li onClick={() => updateFilter('category', 'shop')}>
+                {/* <li onClick={() => updateFilter('category', 'shop')}>
                   <Link href="/business/gajera-environment" className="mb-3 inline-block text-base text-gray hover:text-white">
                     Gajera Environment
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
